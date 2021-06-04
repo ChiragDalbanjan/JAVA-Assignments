@@ -18,21 +18,16 @@ import java.util.Map;
 
 public class SortFrequencyByValue {
 
-	static void Fn(int arr[], LinkedHashMap<Integer, Integer> frequency) {
+	static void SortByValue( LinkedHashMap<Integer, Integer> frequency) {
 
 		List<Map.Entry<Integer, Integer>> entries = new ArrayList<>(frequency.entrySet());
 
-		Collections.sort(entries, new Comparator<Map.Entry<Integer, Integer>>() {
-
-			@Override
-			public int compare(Map.Entry<Integer, Integer> lhs, Map.Entry<Integer, Integer> rhs) {
-				if (lhs.getValue() < rhs.getValue()) {
-					return 1;
-				} else {
-					return 0;
-				}
+		Collections.sort(entries, new Comparator<Map.Entry<Integer, Integer> >() {
+			public int compare(Map.Entry<Integer, Integer> lhs,
+							Map.Entry<Integer, Integer> rhs)
+			{
+				return (lhs.getValue()).compareTo(rhs.getValue());
 			}
-
 		});
 
 		System.out.println(entries);
@@ -46,7 +41,7 @@ public class SortFrequencyByValue {
 
 		LinkedHashMap<Integer, Integer> lhm = new LinkedHashMap<>(frequency);
 
-		Fn(arr, lhm);
+		SortByValue(lhm);
 
 		System.out.print(frequency);
 
